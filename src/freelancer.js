@@ -1,6 +1,7 @@
 class Freelancer {
-  constructor (json) {
-    this._raw = json
+  constructor (raw) {
+    if (!raw) throw new Error('[raw] argument is mandatory')
+    this._raw = raw
   }
 
   get skills () {
