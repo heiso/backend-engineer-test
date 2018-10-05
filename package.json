@@ -13,6 +13,7 @@
   "homepage": "https://github.com/hellocomet/backend-engineer-test",
   "main": "exercise.js",
   "scripts": {
+    "lint": "standard",
     "start": "node exercise.js",
     "test": "mocha -R spec tests/unit/**/*.specs.js --recursive"
   },
