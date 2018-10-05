@@ -2,14 +2,24 @@
   "name": "comet-backend-engineer-test",
   "version": "1.0.0",
   "description": "comet backend engineer test",
-  "dependencies": {},
   "engines": {
-    "node": "8.4.0"
+    "node": "8.11.3"
   },
   "author": "comet team",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hellocomet/backend-engineer-test/issues"
   },
-  "homepage": "https://github.com/hellocomet/backend-engineer-test"
+  "homepage": "https://github.com/hellocomet/backend-engineer-test",
+  "main": "exercise.js",
+  "scripts": {
+    "start": "node exercise.js",
+    "test": "mocha -R spec tests/unit/**/*.specs.js --recursive"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "standard": "^12.0.1"
+  }
 }

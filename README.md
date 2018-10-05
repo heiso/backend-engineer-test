@@ -1,8 +1,29 @@
-Hi !
+# Install
 
-This is an off-site test for Backend Engineer in the process of joining the comet team.
+Be sure to use node 8.11.0, if you'r running another version of node, you could use [nvm](https://github.com/creationix/nvm) to work with differents version of node without getting crazy :)
 
-# Context
+If you have nvm installed
+```
+nvm use
+```
+Then install node dependencies
+```
+npm i
+```
+
+# Run
+
+```
+node exercise.js
+```
+Or
+```
+npm start
+```
+
+# Exercise
+
+## Context
 
 At comet, we handle thousands of freelancers, each freelancers has several professional experiences populated in their profile.
 
@@ -10,7 +31,7 @@ We use these professional experiences in our matching algorithm to match the fre
 
 You can find an example of a mission and of a freelancer data model in the `/examples` folder.
 
-# Exercise
+## Exercise
 
 In our matching algorithm, we use the total months of experience of each skill for each freelancer.
 
@@ -57,7 +78,7 @@ The result should be formatted in JSON with this exact structure on the standard
 }
 ```
 
-# Rules
+## Rules
 
 1. Overlapping months of experience with the same skill(s) should not be counted twice, see [assets/months-overlap.png](./assets/months-overlap.png)
 2. All professional experiences `startDate` and `endDate` values will be on the first day of the month.
@@ -67,7 +88,7 @@ The result should be formatted in JSON with this exact structure on the standard
 6. If there's an error in the json file, exit without printing anything
 7. The duration in months should be rounded
 
-# What's evaluated
+## What's evaluated
 
 1. Cleanliness & structure of the code
 2. Problem solving
@@ -77,7 +98,7 @@ The result should be formatted in JSON with this exact structure on the standard
 6. Respect of KISS and DRY principles
 7. Use of git commits
 
-# How to
+## How to
 
 1. Fork the repo or clone it if you don't have a Github account
 2. Do the exercise
