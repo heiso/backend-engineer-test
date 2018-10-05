@@ -4,7 +4,8 @@
 const { expect } = require('chai')
 const { beforeHook, afterHook } = require('./shared/bootstrap')
 const { Freelancer } = require('../../src/freelancer')
-const fixture = require('./fixtures/freelancer.json')
+const input = require('./fixtures/freelancer.input.json')
+const expected = require('./fixtures/freelancer.expected.json')
 
 describe('Freelancer', () => {
   before(() => beforeHook())
@@ -16,18 +17,22 @@ describe('Freelancer', () => {
     })
 
     it('should create an instance of Freelancer', () => {
-      const freelancer = new Freelancer(fixture)
+      const freelancer = new Freelancer(input)
       expect(freelancer).to.be.an.instanceOf(Freelancer)
     })
   })
 
   describe('instance', () => {
     beforeEach(() => {
-      this.freelancer = new Freelancer(fixture)
+      this.freelancer = new Freelancer(input)
     })
 
     it('should have a property skills', () => {
       expect(this.freelancer).to.have.property('skills')
+    })
+
+    it('should have a property skills which is an aggregation of month of experience by skill', () => {
+      expect(this.freelancer.skills).to.equal(expected.freelance.computedSkills)
     })
   })
 })
