@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/heiso/backend-engineer-test.svg?branch=master)](https://travis-ci.org/heiso/backend-engineer-test)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 # Install
 
 Be sure to use node 8.11.0, if you'r running another version of node, you could use [nvm](https://github.com/creationix/nvm) to work with differents version of node without getting crazy :)
