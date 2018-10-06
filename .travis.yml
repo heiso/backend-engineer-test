@@ -6,6 +6,5 @@ before_install:
   - npm i -g npm@latest
 
 script:
-  - npm ci
   - npm run lint
   - npm test
