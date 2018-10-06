@@ -17,7 +17,9 @@
     "start": "node exercise.js",
     "test": "mocha -R spec tests/unit/**/*.specs.js --recursive"
   },
-  "dependencies": {},
+  "dependencies": {
+    "moment": "^2.22.2"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^5.2.0",

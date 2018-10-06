@@ -32,7 +32,7 @@ describe('Freelancer', () => {
     })
 
     it('should have a property skills which is an aggregation of month of experience by skill', () => {
-      expect(this.freelancer.skills).to.equal(expected.freelance.computedSkills)
+      expect(this.freelancer.skills).to.have.deep.members(expected.freelance.computedSkills)
     })
   })
 })

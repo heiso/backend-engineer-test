@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 class Freelancer {
   constructor (raw) {
     if (!raw) throw new Error('[raw] argument is mandatory')
@@ -6,23 +8,38 @@ class Freelancer {
 
   get skills () {
     if (!this._raw.freelance || !this._raw.freelance.professionalExperiences) return []
-    const computedSkillsById = this._raw.freelance.professionalExperiences.reduce((acc, { startDate, endDate, skills = [] }) => {
-      startDate = new Date(startDate)
-      endDate = new Date(endDate)
-      let durationInMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12
-      durationInMonths -= startDate.getMonth() + 1
-      durationInMonths += endDate.getMonth()
-      durationInMonths = (durationInMonths <= 0) ? 0 : durationInMonths
 
-      for (const skill of skills) {
-        acc[skill.id] = {
-          ...skill,
-          durationInMonths: (acc[skill.id]) ? acc[skill.id].durationInMonths + durationInMonths : durationInMonths
-        }
-      }
+    const { professionalExperiences } = this._raw.freelance
+
+    const computedSkills = {}
+
+    const monthsBySkills = professionalExperiences.reduce((acc, { skills = [] }) => {
+      skills.forEach((skill) => {
+        acc[skill.id] = new Set()
+      })
       return acc
     }, {})
-    return Object.values(computedSkillsById)
+
+    for (const { startDate, endDate, skills = [] } of professionalExperiences) {
+      for (const skill of skills) {
+        computedSkills[skill.id] = skill
+
+        const start = moment(startDate)
+        const end = moment(endDate)
+        let month = start.clone()
+        while (month < end) {
+          monthsBySkills[skill.id].add(month.format('YYYY-MM'))
+          month = month.add(1, 'month')
+        }
+      }
+    }
+
+    return Object.values(computedSkills).map((computedSkill) => {
+      return {
+        ...computedSkill,
+        durationInMonths: monthsBySkills[computedSkill.id].size - 1
+      }
+    })
   }
 }
 
