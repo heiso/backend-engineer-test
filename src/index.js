@@ -1,7 +1,7 @@
 const fs = require('fs')
-const { Freelancer } = require('./freelancer')
+const { Freelance } = require('./freelance')
 
-const FILE_PATH = './exercise/freelancer.json'
+const FILE_PATH = './exercise/freelance.json'
 
 function getJson (path) {
   if (!fs.existsSync(path)) throw new Error(`File ${path} does not exists`)
@@ -16,8 +16,8 @@ function getJson (path) {
 }
 
 try {
-  const freelancer = new Freelancer(getJson(FILE_PATH))
-  console.log(freelancer.skills)
+  const freelance = new Freelance(getJson(FILE_PATH))
+  console.log(freelance)
 } catch (err) {
   console.log(err)
   process.exit(1)
