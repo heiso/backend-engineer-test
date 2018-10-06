@@ -8,9 +8,9 @@
   "author": "comet team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hellocomet/backend-engineer-test/issues"
+    "url": "https://github.com/heiso/backend-engineer-test/issues"
   },
-  "homepage": "https://github.com/hellocomet/backend-engineer-test",
+  "homepage": "https://github.com/heiso/backend-engineer-test",
   "main": "exercise.js",
   "scripts": {
     "lint": "standard",
