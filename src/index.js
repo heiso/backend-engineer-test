@@ -19,6 +19,5 @@ try {
   const freelance = new Freelance(getJson(FILE_PATH))
   console.log(freelance)
 } catch (err) {
-  console.log(err)
   process.exit(1)
 }

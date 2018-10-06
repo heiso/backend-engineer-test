@@ -1,22 +1,7 @@
-const moment = require('moment')
 const assert = require('assert')
+const { setMonthsSetFromInterval } = require('./shared/date.service')
 
 class Freelance {
-  static setMonthsFromInterval (startDate, endDate, monthsSet) {
-    const start = moment(startDate)
-    const end = moment(endDate)
-
-    // Round endDate to the nearest end of month to get a correct interval with a month granularity
-    end.subtract(end.daysInMonth() / 2, 'days').endOf('month')
-
-    const currentMonth = start.clone()
-    /* eslint-disable no-unmodified-loop-condition */
-    while (currentMonth < end) {
-      monthsSet.add(currentMonth.format('YYYY-MM'))
-      currentMonth.add(1, 'month')
-    }
-  }
-
   static getComputedSkills (professionalExperiences = []) {
     // Init a collection of month Sets (which will natively have a unique behavior)
     const monthsBySkills = professionalExperiences.reduce((acc, { skills = [] }) => {
@@ -32,7 +17,7 @@ class Freelance {
       for (const skill of skills) {
         computedSkillsById[skill.id] = skill
         // Store number of months for this skill on this professionalExperiences time interval
-        Freelance.setMonthsFromInterval(startDate, endDate, monthsBySkills[skill.id])
+        setMonthsSetFromInterval(startDate, endDate, monthsBySkills[skill.id])
       }
     }
 
