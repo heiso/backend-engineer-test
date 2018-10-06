@@ -15,6 +15,7 @@ npm i
 ```
 
 # Run
+**If you run the project like that, you'll get an empty freelance. If you want to test the code with some data, edit the file `exercice/freelance.json`, you can use the `tests/unit/fixtures/freelance.input.json` file as an example.**
 
 ```
 node exercise.js
@@ -22,6 +23,11 @@ node exercise.js
 Or
 ```
 npm start
+```
+
+# Tests
+```
+npm test
 ```
 
 # Exercise
